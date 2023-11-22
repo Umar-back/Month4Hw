@@ -1,18 +1,26 @@
 from django.shortcuts import HttpResponse, render
 
-# CDV - Class Based View
-# FBV - Function
+from post.models import Product
 
-def hello_view(request):
-    print(request.method)
+
+def main_view(request):
     if request.method == 'GET':
         return render(request, 'index.html')
 
 
-def date_view(request):
+def products_view(request):
+    if request.method == 'GET':
+        products = Product.objects.all() # QuerySet
 
-    return HttpResponse('16.11.2023')
+        context = {
+            "products": products,
+        }
+
+        return render(request, 'products/products.html', context=context)
+
+
+def date_view(request):
+    return HttpResponse('22.11.2023')
 
 def by_view(request):
-
-    return HttpResponse("Goodby user!")
+    return HttpResponse('Goodbye user!')
