@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <h1>
+      Category
+  </h1>
+
+{% for i in hashtags %}
+    <a href="#" class="btn btn-primary">#{{ i.title }}</a>
+
+{% endfor %}
+
+{% endblock %}

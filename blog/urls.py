@@ -9,4 +9,5 @@ urlpatterns = [
     path('products/', views.products_view),
     path('current_date/', views.date_view),
     path('goodby/', views.by_view),
+    path('category/', views.category_view),
 ]
