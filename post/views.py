@@ -1,10 +1,10 @@
 from django.shortcuts import HttpResponse, render
 
-from post.models import Product, Hashtag, Comment
+from post.models import Product, Category, Comment
 
 from django.shortcuts import HttpResponse, render
 
-from post.models import Product, Hashtag, Comment
+from post.models import Product, Category, Comment
 
 def main_view(request):
     # post = Product.objects.get(id=1)
@@ -41,10 +41,10 @@ def by_view(request):
 
 def category_view(request):
     if request.method == 'GET':
-        hashtags = Hashtag.objects.all()
+        categories = Category.objects.all()
 
         context = {
-            "hashtags": hashtags
+            "category": categories
         }
 
         return render(request, 'products/categories.html', context=context)

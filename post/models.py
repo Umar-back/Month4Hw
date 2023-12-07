@@ -1,6 +1,6 @@
 from django.db import models
 
-class Hashtag(models.Model):
+class Category(models.Model):
     title = models.CharField(max_length=333)
 
 
@@ -12,7 +12,7 @@ class Product(models.Model):
     rate = models.FloatField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     hashtag = models.ManyToManyField(
-        'post.Hashtag',
+        'post.Category',
         blank=True,
         null=True,
         related_name='products'
