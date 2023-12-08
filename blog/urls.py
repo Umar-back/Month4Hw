@@ -10,7 +10,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.main_view),
     path('products/', views.products_view),
+    path('products/<int:product_id>/', views.products_detail_view),
     path('current_date/', views.date_view),
-    path('goodby/', views.by_view),
+    path('goodbye/', views.by_view),
     path('category/', views.category_view),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

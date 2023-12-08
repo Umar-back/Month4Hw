@@ -1,20 +1,22 @@
 {% extends 'index.html' %}
 
 {% block content %}
-  <h1>
-      Products
-  </h1>
+  <h1>Products</h1>
 
   {% for product in products %}
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      {% if product.image %}
+        <img src="/media/{{ product.image }}" class="card-img-top" alt="...">
+      {% endif %}
       <div class="card-body">
         <h5 class="card-title">{{ product.title }}</h5>
         <p class="card-text">{{ product.rate }}</p>
-        {% for hashtag in product.hashtag.all %}
-          <a href="#" class="btn btn-primary">#{{ hashtag.title }}</a>
-        {% endfor %}
-        <a href="#" class="btn btn-primary">More</a>
+        {% if product.hashtag.all %}
+          {% for hashtag in product.hashtag.all %}
+            <a href="#" class="btn btn-primary">#{{ hashtag.title }}</a>
+          {% endfor %}
+        {% endif %}
+        <a href="/products/{{ product.id }}/" class="btn btn-primary">More</a>
       </div>
     </div>
   {% endfor %}
